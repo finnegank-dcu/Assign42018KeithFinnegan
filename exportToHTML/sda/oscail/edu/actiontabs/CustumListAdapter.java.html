@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>CustumListAdapter.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+CustumListAdapter.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">sda.oscail.edu.actiontabs; 
+ 
+</span><span class="s2">/** 
+ * Created by keithfinnegan on 1/19/2018. 
+ * 
+ */</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">android.app.Activity; 
+</span><span class="s0">import </span><span class="s1">android.view.LayoutInflater; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.view.ViewGroup; 
+</span><span class="s0">import </span><span class="s1">android.widget.ArrayAdapter; 
+</span><span class="s0">import </span><span class="s1">android.widget.ImageView; 
+</span><span class="s0">import </span><span class="s1">android.widget.TextView; 
+ 
+</span><span class="s0">public class </span><span class="s1">CustumListAdapter </span><span class="s0">extends </span><span class="s1">ArrayAdapter&lt;String&gt; { 
+ 
+    </span><span class="s0">private final </span><span class="s1">Activity context; 
+    </span><span class="s0">private final </span><span class="s1">String[] itemname; 
+    </span><span class="s0">private final </span><span class="s1">Integer[] imgid; 
+ 
+    </span><span class="s0">public </span><span class="s1">CustumListAdapter(Activity context, String[] itemname, Integer[] imgid) { 
+        </span><span class="s0">super</span><span class="s1">(context, R.layout.mylist, itemname); 
+        </span><span class="s2">// TODO Auto-generated constructor stub</span><span class="s1"> 
+ 
+        </span><span class="s0">this</span><span class="s1">.context=context; 
+        </span><span class="s0">this</span><span class="s1">.itemname=itemname; 
+        </span><span class="s0">this</span><span class="s1">.imgid=imgid; 
+    } 
+ 
+    </span><span class="s0">public </span><span class="s1">View getView(</span><span class="s0">int </span><span class="s1">position,View view,ViewGroup parent) { 
+        LayoutInflater inflater=context.getLayoutInflater(); 
+        View rowView=inflater.inflate(R.layout.mylist, </span><span class="s0">null</span><span class="s1">,</span><span class="s0">true</span><span class="s1">); 
+ 
+        TextView txtTitle = (TextView) rowView.findViewById(R.id.item); 
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon); 
+        TextView extratxt = (TextView) rowView.findViewById(R.id.textView1); 
+ 
+        txtTitle.setText(itemname[position]); 
+        imageView.setImageResource(imgid[position]); 
+        extratxt.setText(</span><span class="s3">&quot;Description &quot;</span><span class="s1">+itemname[position]); 
+        </span><span class="s0">return </span><span class="s1">rowView; 
+ 
+    }; 
+}</span></pre>
+</body>
+</html>

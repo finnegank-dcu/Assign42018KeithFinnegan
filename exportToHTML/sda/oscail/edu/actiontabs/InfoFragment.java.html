@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>InfoFragment.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,0,255); }
+.s3 { color: rgb(128,128,128); font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+InfoFragment.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">sda.oscail.edu.actiontabs; 
+ 
+</span><span class="s0">import </span><span class="s1">android.graphics.Color; 
+</span><span class="s0">import </span><span class="s1">android.support.design.widget.FloatingActionButton; 
+</span><span class="s0">import </span><span class="s1">android.support.design.widget.Snackbar; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.Fragment; 
+ 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.view.LayoutInflater; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.view.ViewGroup; 
+</span><span class="s0">import </span><span class="s1">android.widget.Button; 
+</span><span class="s0">import </span><span class="s1">android.widget.TextView; 
+ 
+ 
+</span><span class="s0">public class </span><span class="s1">InfoFragment </span><span class="s0">extends </span><span class="s1">Fragment 
+{ 
+   Button m_pressButton; 
+    TextView m_textView; 
+    </span><span class="s0">int </span><span class="s1">m_count=</span><span class="s2">0</span><span class="s1">; 
+    View.OnClickListener mOnClickListener; 
+ 
+    @Override 
+    </span><span class="s0">public </span><span class="s1">View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) { 
+        </span><span class="s3">// Inflate the layout for this fragment</span><span class="s1"> 
+ 
+        View root = inflater.inflate(R.layout.infofragment, container, </span><span class="s0">false</span><span class="s1">); 
+ 
+ 
+ 
+        FloatingActionButton fab = (FloatingActionButton) root.findViewById(R.id.fab); 
+        fab.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() 
+        { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View view) 
+            { 
+                </span><span class="s3">//Toast.makeText(getActivity(), &quot;hello&quot;, Toast.LENGTH_SHORT).show();</span><span class="s1"> 
+ 
+ 
+                Snackbar snackbar =Snackbar.make(view, </span><span class="s4">&quot;Count is &quot;</span><span class="s1">+  Integer.toString(m_count), Snackbar.LENGTH_LONG) 
+                        .setAction(</span><span class="s4">&quot;Increment&quot;</span><span class="s1">, mOnClickListener).setActionTextColor(Color.GREEN); 
+                View sbView = snackbar.getView(); 
+                sbView.setBackgroundColor(Color.parseColor(</span><span class="s4">&quot;#3f51b5&quot;</span><span class="s1">)); 
+                TextView tv = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text); 
+                tv.setTextColor(Color.WHITE); 
+                snackbar.show(); 
+            } 
+        }); 
+ 
+        mOnClickListener = </span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) { 
+                m_count++; 
+            } 
+        }; 
+        </span><span class="s0">return </span><span class="s1">root; 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">onActivityCreated(Bundle savedInstanceState) { 
+        </span><span class="s0">super</span><span class="s1">.onActivityCreated(savedInstanceState); 
+ 
+        </span><span class="s0">if </span><span class="s1">(savedInstanceState != </span><span class="s0">null</span><span class="s1">) { 
+           m_count =  savedInstanceState.getInt(</span><span class="s4">&quot;COUNT&quot;</span><span class="s1">); 
+ 
+        } 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public void </span><span class="s1">onSaveInstanceState(Bundle outState) { 
+        </span><span class="s0">super</span><span class="s1">.onSaveInstanceState(outState); 
+ 
+        outState.putInt(</span><span class="s4">&quot;COUNT&quot;</span><span class="s1">,m_count); 
+    } 
+ 
+ 
+ 
+} 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">sda.oscail.edu.actiontabs; 
+ 
+</span><span class="s0">import </span><span class="s1">android.content.Intent; 
+</span><span class="s0">import </span><span class="s1">android.support.design.widget.TabLayout; 
+</span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+</span><span class="s0">import </span><span class="s1">android.support.v7.widget.Toolbar; 
+ 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.FragmentPagerAdapter; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.view.ViewPager; 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.view.Menu; 
+</span><span class="s0">import </span><span class="s1">android.view.MenuItem; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+ 
+</span><span class="s0">import </span><span class="s1">android.widget.AdapterView; 
+</span><span class="s0">import </span><span class="s1">android.widget.ListView; 
+</span><span class="s0">import </span><span class="s1">android.widget.Toast; 
+ 
+</span><span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity 
+{ 
+ 
+    </span><span class="s2">/** 
+     * The {</span><span class="s3">@link </span><span class="s2">android.support.v4.view.PagerAdapter} that will provide 
+     * fragments for each of the sections. We use a 
+     * {</span><span class="s3">@link </span><span class="s2">FragmentPagerAdapter} derivative, which will keep every 
+     * loaded fragment in memory. If this becomes too memory intensive, it 
+     * may be best to switch to a 
+     * {</span><span class="s3">@link </span><span class="s2">android.support.v4.app.FragmentStatePagerAdapter}. 
+     */</span><span class="s1"> 
+    </span><span class="s0">private </span><span class="s1">MyPageAdapter mMyPagerAdapter; 
+ 
+    </span><span class="s2">/** 
+     * The {</span><span class="s3">@link </span><span class="s2">ViewPager} that will host the section contents. 
+     */</span><span class="s1"> 
+    </span><span class="s0">private </span><span class="s1">ViewPager mViewPager; 
+ 
+    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) 
+    { 
+        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_main); 
+ 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); 
+        setSupportActionBar(toolbar); 
+ 
+ 
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout); 
+        tabLayout.addTab(tabLayout.newTab()); 
+        tabLayout.addTab(tabLayout.newTab()); 
+        tabLayout.addTab(tabLayout.newTab()); 
+        tabLayout.addTab(tabLayout.newTab()); 
+ 
+ 
+        </span><span class="s2">// Create the adapter that will return a fragment for each of the three</span><span class="s1"> 
+        </span><span class="s2">// primary sections of the activity.</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">ViewPager mypager = (ViewPager) findViewById(R.id.pager); 
+        </span><span class="s0">final </span><span class="s1">MyPageAdapter myadapter = </span><span class="s0">new </span><span class="s1">MyPageAdapter(getSupportFragmentManager(), tabLayout.getTabCount()); 
+ 
+        mypager.setAdapter(myadapter); 
+ 
+        tabLayout.setupWithViewPager(mypager); 
+ 
+ 
+</span><span class="s2">/* 
+       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab); 
+        fab.setOnClickListener(new View.OnClickListener() 
+        { 
+            @Override 
+            public void onClick(View view) 
+            { 
+                new CountDownTimer(30000, 1000) { 
+ 
+                    public void onTick(long millisUntilFinished) { 
+ 
+ 
+                        mTextField.setText(&quot;seconds remaining: &quot; + millisUntilFinished / 1000); 
+                    } 
+ 
+                    public void onFinish() { 
+                        mTextField.setText(&quot;done!&quot;); 
+                    } 
+                }.start(); 
+ 
+            } 
+        });*/</span><span class="s1"> 
+ 
+    } 
+ 
+ 
+    @Override 
+    </span><span class="s0">public boolean </span><span class="s1">onCreateOptionsMenu(Menu menu) 
+    { 
+        </span><span class="s2">// Inflate the menu; this adds items to the action bar if it is present.</span><span class="s1"> 
+        getMenuInflater().inflate(R.menu.menu_main, menu); 
+        </span><span class="s0">return true</span><span class="s1">; 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public boolean </span><span class="s1">onOptionsItemSelected(MenuItem item) 
+    { 
+ 
+        </span><span class="s0">switch </span><span class="s1">(item.getItemId()) { 
+ 
+            </span><span class="s0">case </span><span class="s1">R.id.menuitem_send: 
+                Toast.makeText(</span><span class="s0">this</span><span class="s1">, getString(R.string.ui_menu_send), 
+                        Toast.LENGTH_SHORT).show(); 
+                </span><span class="s0">return true</span><span class="s1">; 
+ 
+ 
+        } 
+        </span><span class="s0">return false</span><span class="s1">; 
+ 
+ 
+    } 
+ 
+    </span><span class="s0">public static class </span><span class="s1">FindFragment </span><span class="s0">extends </span><span class="s1">AppCompatActivity{ 
+ 
+        ListView list; 
+        String[] itemname ={ 
+                </span><span class="s4">&quot;Pampers&quot;</span><span class="s1">, 
+                </span><span class="s4">&quot;Panadol&quot;</span><span class="s1">, 
+                </span><span class="s4">&quot;Panadol Extra&quot;</span><span class="s1">, 
+                </span><span class="s4">&quot;Parfum&quot;</span><span class="s1">, 
+                </span><span class="s4">&quot;Razors&quot;</span><span class="s1">, 
+                </span><span class="s4">&quot;Scented Candles&quot;</span><span class="s1">, 
+                </span><span class="s4">&quot;Shampoo&quot;</span><span class="s1">, 
+                </span><span class="s4">&quot;Teeth Whitening&quot;</span><span class="s1"> 
+        }; 
+ 
+        Integer[] imgid={ 
+                R.drawable.pampers, 
+                R.drawable.panadol, 
+                R.drawable.panadolextra, 
+                R.drawable.parfum, 
+                R.drawable.razors, 
+                R.drawable.scentedcandles, 
+                R.drawable.shampoo, 
+                R.drawable.teethwhitening, 
+        }; 
+        @Override 
+        </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+            </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+            setContentView(R.layout.listfragment); 
+ 
+            ListAdapter adapter=</span><span class="s0">new </span><span class="s1">ListAdapter(</span><span class="s0">this</span><span class="s1">, itemname, imgid); 
+            list=(ListView)findViewById(R.id.list); 
+            list.setAdapter(adapter); 
+ 
+            list.setOnItemClickListener(</span><span class="s0">new </span><span class="s1">AdapterView.OnItemClickListener() { 
+ 
+                @Override 
+                </span><span class="s0">public void </span><span class="s1">onItemClick(AdapterView&lt;?&gt; parent, View view, 
+                                        </span><span class="s0">int </span><span class="s1">position, </span><span class="s0">long </span><span class="s1">id) { 
+                    </span><span class="s2">// TODO Auto-generated method stub</span><span class="s1"> 
+                    String Selecteditem = itemname[+position]; 
+                    Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show(); 
+ 
+ 
+                }});} 
+ 
+        </span><span class="s0">public void </span><span class="s1">openSpinner(View view) 
+        { 
+            Intent myIntent = </span><span class="s0">new </span><span class="s1">Intent(</span><span class="s0">this</span><span class="s1">, SpinnerActivity.</span><span class="s0">class</span><span class="s1">); 
+            startActivity(myIntent);} 
+ 
+    } 
+ 
+ 
+        } 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="sda.oscail.edu.actiontabs.MainActivity">
+
+
+
+
+        <item
+            android:id="@+id/menuitem_send"
+            android:icon="@android:drawable/ic_menu_send"
+            app:showAsAction="ifRoom"
+            android:title="@string/ui_menu_send">
+        </item>
+
+
+</menu>

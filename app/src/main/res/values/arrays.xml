@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="collectionTime_array">
+        <item>1 Hr</item>
+        <item>3 Hr</item>
+        <item>12 Hr</item>
+        <item>48 Hr</item>
+    </string-array>
+</resources>
